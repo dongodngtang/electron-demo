@@ -12,26 +12,26 @@ module.exports = {
     hot: true, //在devServer中增加hot字段
   },
   entry: {
-    gui: ["./src/index.jsx","./src/dev.js"],
-    'lib.min': ['react', 'react-dom'],
+    gui: ["./src/index.jsx", "./src/dev.js"],
+    "lib.min": ["react", "react-dom"],
   },
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "build"),
-    chunkFilename: 'chunks/[name].js'
+    chunkFilename: "chunks/[name].js",
   },
   resolve: {
-    symlinks: false
+    symlinks: false,
   },
   optimization: {
     splitChunks: {
-        chunks: 'all',
-        name: 'lib.min'
+      chunks: "all",
+      name: "lib.min",
     },
     runtimeChunk: {
-        name: 'lib.min'
-    }
-},
+      name: "lib.min",
+    },
+  },
   module: {
     rules: [
       {

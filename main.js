@@ -1,16 +1,20 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+const isDev = require('electron-is-dev')
 
 function createWindow () {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'build/preload.js')
+      nodeIntegration:true,
+      preload:path.resolve(__dirname,'../preload.js')
     }
   })
 
-  win.loadFile('build/index.html')
+  const urlLocation = isDev?"http://localhost:3000":`file://${path.join(__dirname, 'index.html')}`
+
+  win.loadURL(urlLocation)
 }
 
 app.whenReady().then(() => {
