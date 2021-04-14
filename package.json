@@ -12,7 +12,7 @@
     "ele":"electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "cross-env GH_TOKEN=7fd6db6a1868797016b3ccf954d01d051008ebc5 electron-builder",
+    "release": "cross-env GH_TOKEN=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 electron-builder",
     "prerelease": "npm run build && npm run buildMain",
     "prepack": "npm run build && npm run buildMain"
   },
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.bell.ai/luocd/electron-app.git"
+    "url": "https://github.com/dongodngtang/electron-demo.git"
   },
   "license": "ISC",
   "devDependencies": {
@@ -53,6 +53,7 @@
       "preload.js",
       "package.json"
     ],
+    "publish":["github"],
     "extraMetadata": {
       "main": "./build/main.js"
     },
