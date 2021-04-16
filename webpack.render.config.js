@@ -3,25 +3,25 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack"); //增加导入webpack
 
 module.exports = {
-  mode: "development",
   devtool: "cheap-module-source-map",
+  target: "electron-renderer",
   devServer: {
     contentBase: path.resolve(__dirname, "build"),
     host: "0.0.0.0",
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3001,
     hot: true, //在devServer中增加hot字段
   },
   entry: {
-    gui: ["./src/index.jsx", "./src/dev.js"],
+    gui: ["./src/renderIndex.jsx", "./src/dev.js"],
     "lib.min": ["react", "react-dom"],
   },
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "build"),
-    chunkFilename: "chunks/[name].js",
+    chunkFilename: "chunks/[name].js"
   },
   resolve: {
-    symlinks: false
+    extensions:['.jsx','.js']
   },
   optimization: {
     splitChunks: {
